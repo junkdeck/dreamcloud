@@ -44,8 +44,9 @@ export const postData = (dream, state, dispatch) => {
       return res.json();
     })
     .then(async (data) => {
-      await dispatch({ type: actions.ADD_DREAM, dream });
-      navigate(`/dream/${data[0].id}`);
+      const newDream = data[0];
+      await dispatch({ type: actions.ADD_DREAM, dream: newDream });
+      navigate(`/dream/${newDream.id}`);
     })
     .catch((err) => {
       console.error(err);
