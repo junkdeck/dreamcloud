@@ -27,9 +27,7 @@ const reducer = (state, action) => {
         dreams: [
           ...state.dreams,
           {
-            id: state.dreams.length,
-            title: action.dream,
-            content: "",
+            ...action.dream,
           },
         ],
       };

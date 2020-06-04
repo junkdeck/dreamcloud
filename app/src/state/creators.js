@@ -1,3 +1,4 @@
+import { navigate } from "@reach/router";
 import actions from "./actions";
 
 export const fetchData = (state, dispatch) => {
@@ -39,8 +40,13 @@ export const postData = (dream, state, dispatch) => {
     },
     body: JSON.stringify({ dream }),
   })
-    .then((data) => {
-      dispatch({ type: actions.ADD_DREAM, dream });
+    .then((res) => {
+      return res.json();
+    })
+    .then(async (data) => {
+      const newDream = data[0];
+      await dispatch({ type: actions.ADD_DREAM, dream: newDream });
+      navigate(`/dream/${newDream.id}`);
     })
     .catch((err) => {
       console.error(err);
