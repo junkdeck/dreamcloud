@@ -170,6 +170,14 @@ ul {
   margin-top: 0.5rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.w100 {
+  width: 100%;
+}
+
 .wrapper {
   width: 800px;
   padding: 2rem;
@@ -206,4 +214,10 @@ ul {
 .subheader {
   letter-spacing: 5px;
   color: $secDark;
+}
+
+.error {
+
+  color: $pri;
+
 }
