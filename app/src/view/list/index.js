@@ -1,9 +1,9 @@
 import { h } from "preact";
 import { useContext } from "preact/hooks";
 
-import DreamList from "/src/component/DreamList";
+import DreamList from "src/component/DreamList";
 
-import { Store } from "/src/state/store";
+import { Store } from "src/state/store";
 
 const View = () => {
   const { state } = useContext(Store);
