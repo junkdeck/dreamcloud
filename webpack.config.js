@@ -21,6 +21,7 @@ module.exports = {
     modules: ["node_modules"],
     alias: {
       react: "preact/compat",
+      "react-dom/test-utils": "preact/test-utils",
       "react-dom": "preact/compat",
       src: path.resolve(__dirname, "app/src"),
     },
@@ -37,7 +38,16 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: [
+              "@babel/preset-env",
+              [
+                "@babel/preset-react",
+                {
+                  pragma: "h",
+                  pragmaFrag: "Fragment",
+                },
+              ],
+            ],
           },
         },
       },
