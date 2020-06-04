@@ -31,11 +31,11 @@ app.post("/dreams", async (req, res) => {
   const title = req.body && req.body.dream && req.body.dream.title;
   const content = req.body && req.body.dream && req.body.dream.body;
   if (title) {
-    await db.query("INSERT INTO dreams(title, content) VALUES ($1, $2)", [
-      title,
-      content,
-    ]);
-    res.sendStatus(200);
+    const query = await db.query(
+      "INSERT INTO dreams(title, content) VALUES ($1, $2) RETURNING *",
+      [title, content]
+    );
+    res.json(query);
   } else {
     res.status(500);
   }
