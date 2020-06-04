@@ -37,7 +37,7 @@ export const postData = (dream, state, dispatch) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ title: dream }),
+    body: JSON.stringify({ dream }),
   })
     .then((data) => {
       dispatch({ type: actions.ADD_DREAM, dream });
