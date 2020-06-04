@@ -9,7 +9,7 @@ export const Store = createContext();
 const initialState = {
   dreams: [],
   isFetching: true,
-  errors: [],
+  error: [],
 };
 
 const reducer = (state, action) => {
@@ -20,7 +20,7 @@ const reducer = (state, action) => {
       console.log(action);
       return { ...state, dreams: action.payload, isFetching: false };
     case actions.DATA_ERROR:
-      return { ...state, errors: action.errors };
+      return { ...state, error: action.error };
     case actions.ADD_DREAM:
       return {
         ...state,
