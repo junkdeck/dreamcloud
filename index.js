@@ -16,8 +16,13 @@ app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("/dreams", async (req, res) => {
   console.log("recalling all dreams...");
-  const rows = await db.query("SELECT * FROM dreams ORDER BY id");
-  return res.json(rows);
+  try {
+    const rows = await db.query("SELECT * FROM dreams ORDER BY id");
+    return res.json(rows);
+  } catch {
+    console.error("error fetching dreams. database running?");
+    return res.sendStatus(500);
+  }
 });
 
 app.post("/dreams", async (req, res) => {
