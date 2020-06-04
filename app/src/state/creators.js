@@ -26,7 +26,7 @@ export const fetchData = (state, dispatch) => {
     .catch((err) => {
       dispatch({
         type: actions.DATA_ERROR,
-        errors: err,
+        error: err,
       });
     });
 };
