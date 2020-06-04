@@ -1,0 +1,209 @@
+$pri: #cc3833;
+$priDark: #751a12;
+$sec: #1d6ac2;
+$secDark: #1b4575;
+$tri: #bfd929;
+
+$white: #f9f9f8;
+$black: #000;
+$lightgray: #e7e8e7;
+$darkgrey: #383637;
+
+$headerColor: $priDark;
+
+$pbg: $secDark;
+$bg: $sec;
+
+$fg: #efefef;
+
+$link: $tri;
+
+$inputBorder: darken($bg, 10%);
+$inputBody: lighten($bg, 10%);
+
+* {
+  padding: 0;
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: monospace;
+  font-size: 120%;
+
+  background: $pbg;
+}
+
+#root {
+  display: flex;
+
+  height: 100%;
+  width: 100%;
+
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 1rem;
+
+  label {
+    margin: 0.5rem 0;
+    color: $white;
+
+    letter-spacing: 5px;
+  }
+
+  input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 7px;
+  }
+
+  input[type="input"] {
+    font-size: 1rem;
+    font-weight: bold;
+
+    border: 3px solid $inputBorder;
+    color: $inputBorder;
+    background: $inputBody;
+  }
+
+  input[type="submit"] {
+    @at-root &:disabled {
+      border: 3px solid $secDark;
+      color: $secDark;
+      background: $sec;
+    }
+    margin-top: 2rem;
+    padding: 1rem;
+
+    font-size: 2.5rem;
+
+    color: $sec;
+    background: $secDark;
+  }
+
+  textarea {
+    padding: 0.5rem;
+
+    outline: none;
+    border: none;
+    border-radius: 7px;
+
+    border: 3px solid $inputBorder;
+    color: $inputBorder;
+    background: $inputBody;
+  }
+}
+
+h1 {
+  color: $secDark;
+  letter-spacing: 0.25rem;
+}
+
+hr {
+  margin: 1rem 0;
+  border: none;
+  border-top: 1px solid $pbg;
+  border-bottom: 1px solid lighten($bg, 15%);
+}
+
+p,
+li {
+  color: $fg;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    transition: letter-spacing 150ms ease-out;
+    color: $tri;
+  }
+
+  li::before {
+    content: ">> ";
+    color: $pri;
+  }
+
+  li:hover {
+    background: $pri;
+    color: $sec;
+
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    border-right: 4px solid $priDark;
+  }
+
+  li:hover::before {
+    color: $sec;
+    letter-spacing: 0;
+  }
+
+  li a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.mt05 {
+  margin-top: 0.5rem;
+}
+
+.wrapper {
+  width: 800px;
+  padding: 2rem;
+
+  background: $bg;
+
+  border-radius: 20px 0;
+
+  box-shadow: 1rem 1rem 10px darken($secDark, 10%);
+}
+
+.center-text {
+  text-align: center;
+}
+
+.header {
+  h1 {
+    letter-spacing: 20px;
+    font: bold 50px sans-serif;
+    background-color: $pbg;
+    color: transparent;
+    text-shadow: 2px 2px 1px adjust-color($bg, $alpha: -0.75);
+    background-clip: text;
+  }
+
+  a {
+    color: $fg;
+  }
+  a + a {
+    margin-left: 1rem;
+  }
+}
+
+.subheader {
+  letter-spacing: 5px;
+  color: $secDark;
+}
