@@ -1,6 +1,6 @@
 import { h } from "preact";
 
-import DreamInput from "/src/component/DreamInput";
+import DreamInput from "src/component/DreamInput";
 
 const NewDream = () => {
   return (
