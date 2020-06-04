@@ -28,9 +28,13 @@ app.get("/dreams", async (req, res) => {
 app.post("/dreams", async (req, res) => {
   console.log("remembering new dream...");
   console.log(req.body);
-  const title = req.body && req.body.title;
+  const title = req.body && req.body.dream && req.body.dream.title;
+  const content = req.body && req.body.dream && req.body.dream.body;
   if (title) {
-    await db.query("INSERT INTO dreams(title) VALUES ($1)", [title]);
+    await db.query("INSERT INTO dreams(title, content) VALUES ($1, $2)", [
+      title,
+      content,
+    ]);
     res.sendStatus(200);
   } else {
     res.status(500);
