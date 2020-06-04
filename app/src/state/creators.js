@@ -3,7 +3,13 @@ import actions from "./actions";
 export const fetchData = (state, dispatch) => {
   dispatch({ type: actions.DATA_REQUEST });
   fetch("http://localhost:3000/dreams")
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        throw new Error("Network error");
+      }
+    })
     .then((data) => {
       const sorted = data.sort((a, b) => {
         const x = parseInt(a.id, 10);
