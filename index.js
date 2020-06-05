@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "/dist")));
 
 app.get("/dreams", async (req, res) => {
   console.log("recalling all dreams...");
