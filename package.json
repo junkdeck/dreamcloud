@@ -32,7 +32,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --open & node index.js",
     "start": "yarn build && node index.js",
     "build": "webpack"
   }
